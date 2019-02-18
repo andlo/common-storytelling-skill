@@ -1,7 +1,8 @@
-# This file is auto translated by mycroft-msk. 
-# Please do a manuel inspection of the translation 
- 
-# (tell | read ) (me |) (a|an) (good) (story | tale | fairy tale)
-(erzählen | lesen) (ich |) (a | an) (gut) (Geschichte | Märchen | Märchen)  
-# (tell | read ) (me |) (the one | that) (story | tale | fairy tale) with {story}
-(tell | read) (ich |) (das eine) (story | male | märchen) mit {story}  
+```
+Erzähl (mir) eine (gute) Geschichte
+Lies (mir) eine (gute) Geschichte vor
+Erzähl (mir) ein (gutes) Märchen
+Lies (mir) ein (gutes) Märchen vor
+Erzähl (mir) (die|der|das) {story}
+Lies (mir) (die|der|das) {story}
+```

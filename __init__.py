@@ -19,10 +19,10 @@ class CommonStorytelling(MycroftSkill):
                 return
         else:
             response = message.data.get("story")
-            self.speak_dialog('let_me_think', data={"story": response})
             self.stories = []
             self.bus.emit(Message("storytelling", {'story': response}))
-            time.sleep(5)
+            self.speak_dialog('let_me_think', data={"story": response})
+            time.sleep(3)
             if self.stories is []:
                 self.speak_dialog('no_story')
                 return
