@@ -19,12 +19,23 @@ class CommonStorytelling(MycroftSkill):
                 return
         else:
             response = message.data.get("story")
+            self.speak_dialog('let_me_think', data={"story": response})
             self.stories = []
-            self.register = 0
             self.bus.emit(Message("storytelling", {'story': response}))
             time.sleep(5)
+            if self.stories is []:
+                self.speak_dialog('no_story')
+                return
             stories = sorted(self.stories, reverse=True)
             story = stories[0]
+            if float(story[0]) < 0.8:
+                self.speak_dialog('that_would_be', data={"story": story[2]})
+                response = self.ask_yesno('is_it_that')
+                if not response or response is 'no':
+                    self.speak_dialog('no_story')
+                    return
+            self.speak_dialog('i_know_that', data={"story": story[2]})
+            self.settings['story'] = story
             self.log.info('choose ' + str(stories[0]))
             self.bus.emit(Message("storytelling."+story[1], {'story': story[2]}))
 
